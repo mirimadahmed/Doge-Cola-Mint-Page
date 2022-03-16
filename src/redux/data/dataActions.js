@@ -22,7 +22,6 @@ const fetchDataFailed = (payload) => {
 };
 
 export const fetchData = () => {
-  console.log("fetchData");
   return async (dispatch) => {
     dispatch(fetchDataRequest());
     try {

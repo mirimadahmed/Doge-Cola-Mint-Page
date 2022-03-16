@@ -168,15 +168,16 @@ function Home() {
         .isOGed(blockchain.account)
         .call();
         setCanMintOG(mintOG);
-        setFeedback(`You are not OGed Member!!!`);
+        (mintOG) ? "" :  setFeedback(`You are not OGed Member!!!`);
         (mintOG) ? setDisable(false) : setDisable(true);
       } else if (currentState == 2) {
         let mintWL = await blockchain.smartContract.methods
         .isWhitelisted(blockchain.account)
         .call();
         setCanMintWL(mintWL);
-        setFeedback(`You are not WhiteListed Member!!!`);
+        (mintWL) ? "":  setFeedback(`You are not WhiteListed Member!!!`);
         (mintWL) ? setDisable(false) : setDisable(true);
+
         setDisplayCost(CONFIG.DISPLAY_COST_WL);
       } else {
         setDisplayCost(CONFIG.DISPLAY_COST_PU);
@@ -293,7 +294,7 @@ function Home() {
               </s.Container>
             ) : (
               <>
-             {blockchain.errorMsg === "" ? (
+             {/* {blockchain.errorMsg === "" ? ( */}
               <s.connectButton
               style={{
                 textAlign: "center",
@@ -309,11 +310,11 @@ function Home() {
             >
               Connect to Wallet
             </s.connectButton>
-             ) : ("")}
+             {/* ) : ("")} */}
               </>
              
             )}
-
+            <s.SpacerLarge />
             {blockchain.errorMsg !== "" ? (
               <s.connectButton
                 style={{
@@ -329,7 +330,7 @@ function Home() {
               
             )}
 
-            {canMintOG || canMintWL !== true ? (
+            { (canMintOG !== true && canMintWL !== true) && (state == 2 || state == 1) ? (
               <s.connectButton
                 style={{
                   textAlign: "center",
@@ -348,43 +349,7 @@ function Home() {
         </s.FlexContainer>
         <s.SpacerLarge />
       </s.Body>
-      <div style={{marginTop:"35vh"}} className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title text-center" style={{fontSize:"2rem",textAlign:"center"}}>Choose the Wallet</h5>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-            <button type="button" className="btn btn-warning btn-lg btn-block"
-             data-dismiss="modal"
-             onClick={(e) => {
-                  e.preventDefault();
-                  dispatch(connect());
-                  getData();
-                  
-                }}
-            >MetaMask</button>
-            <hr></hr>
-            <button type="button" className="btn btn-primary btn-lg btn-block"
-             onClick={(e) => {
-                  e.preventDefault();
-                  dispatch(connectWallet());
-                  getData();
-                  
-                }}
-            >Wallet Connect</button>
-            </div>
-          </div>
-        </div>
-      </div>
+     
     </>
   );
 }
