@@ -1,10 +1,10 @@
 {
-  "CONTRACT_ADDRESS": "0xE51046298920Aa7e626c63561B081342d3e3d050",
-  "SCAN_LINK": "https://etherscan.io/address/0xad602d26fc75cdd57960cc2452f1cfdd6ac3be31",
+  "CONTRACT_ADDRESS": "0xbdca7f7265f55abcc5c62a46c2a9f939f60ca544",
+  "SCAN_LINK": "https://etherscan.io/address/0xbdca7f7265f55abcc5c62a46c2a9f939f60ca544",
   "NETWORK": {
     "NAME": "Ethereum",
     "SYMBOL": "ETH",
-    "ID": 4
+    "ID": 1
   },
   "NETWORK_ID_WALLET": 1,
   "NFT_NAME": "DogeCola Ecosystem NFT",
