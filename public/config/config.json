@@ -1,25 +1,23 @@
 {
-  "CONTRACT_ADDRESS": "0xbdca7f7265f55abcc5c62a46c2a9f939f60ca544",
-  "SCAN_LINK": "https://etherscan.io/address/0xbdca7f7265f55abcc5c62a46c2a9f939f60ca544",
+  "CONTRACT_ADDRESS": "0x3985E7b1EbAF54c97755d7fB4ED9b2B1f29E38dE",
+  "SCAN_LINK": "https://etherscan.io/address/0x3985E7b1EbAF54c97755d7fB4ED9b2B1f29E38dE",
   "NETWORK": {
-    "NAME": "Ethereum",
+    "NAME": "Rinkeby",
     "SYMBOL": "ETH",
-    "ID": 1
+    "ID": 4
   },
-  "NETWORK_ID_WALLET": 1,
-  "NFT_NAME": "DogeCola Ecosystem NFT",
-  "SYMBOL": "DCE",
-  "MAX_SUPPLY": 7777 ,
-  "WEI_COST_OG": 40000000000000000,
-  "DISPLAY_COST_OG": 0.04,
-  "WEI_COST_WL": 50000000000000000,
-  "DISPLAY_COST_WL": 0.05,
-  "WEI_COST_PU": 60000000000000000,
-  "DISPLAY_COST_PU": 0.06,
-  "MAX_LIMIT_OG": 6,
-  "MAX_LIMIT_WL": 3,
+  "NFT_NAME": "HYYP CARTEL",
+  "SYMBOL": "HYYP",
+  "MAX_SUPPLY": 9999 ,
+  "WEI_COST": 70000000000000000,
+  "DISPLAY_COST": 0.07,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://opensea.io/collection/mutant-age-camel-club",
-  "SHOW_BACKGROUND": true
+  "MARKETPLACE_LINK": "https://opensea.io/collection/hyyp-cartel",
+  "SHOW_BACKGROUND": true,
+  "WEI_COST_WL": 50000000000000000,
+  "DISPLAY_COST_WL": 0.05,
+  "WEI_COST_PU": 70000000000000000,
+  "DISPLAY_COST_PU": 0.07,
+  "MAX_LIMIT_WL": 2
 }

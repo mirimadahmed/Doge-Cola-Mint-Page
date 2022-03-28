@@ -154,10 +154,11 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  background-color: black;
 }
 
 html {
-  background-color: "#4C4C4C";
+  background-color: black;
 }
 
 div {

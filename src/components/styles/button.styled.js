@@ -6,7 +6,7 @@ export const StyledButton = styled.button`
   border: none;
   background-color: var(--secondary);
   padding: 10px 30px;
-  font-family: 'cocogoose';
+  font-family: 'Open Sans', sans-serif;
   color:#000;
   width: auto;
   cursor: pointer;

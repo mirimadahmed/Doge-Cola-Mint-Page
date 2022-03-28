@@ -1,5 +1,5 @@
 :root {
-  --primary: #E37407 !important;
+  --primary: #5fcde4;
   --primary-text: #1a1a1a;
   --secondary: #5FCDE4;
   --secondary-text: #ffffff;
@@ -10,8 +10,7 @@
 body{
   background-color: #000000;
   background-image: url('./images/bg.png') !important; ;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center ;
 }
 
@@ -22,19 +21,19 @@ body{
   align-items:center;
   justify-content:space-evenly;
   vertical-align:middle;
-  margin:20px auto;
-  width: 80%;
+  margin:10px auto;
+  width: 40%;
 }
 
 .flexItems{
-  width: 10%;
+  width: 5%;
 }
 .flexItems > a > img{
   width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
-  .flexItems{
+    .flexItems{
     width: 15%;
   }
 }

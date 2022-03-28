@@ -1,56 +1,40 @@
-import  styled  from "styled-components";
-import {Link as LinkS } from "react-scroll";
+import styled from "styled-components";
+import { Link as LinkS } from "react-scroll";
 
-export const Nav= styled.nav`
-  background :${({scrollNav}) => (scrollNav ? "#101522" : "transparent")};
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  font-size: 1.3rem;
-  clear: both;
-  margin-top:-100px;
-
-  @media screen and (max-width: 960px) {
-    transition: 0.8s all ease;
-  }
+export const Nav = styled.nav`
+  background: black;
+  height: 10vh;
+  
 `;
 
-export const NavContainer= styled.div`
-  display: flex;
-  justify-content:space-evenly;
-  height: 100px;
+export const NavContainer = styled.div`
+  height: 10vh;
   z-index: 1;
-  width: 100%;
-  padding:0 24px;
-  max-width: 2200px;
-  /* transform: translateX(-55%);
-  left: 50%; */
-  position: absolute;
-
-  @media screen and (max-width: 960px) {
-    /* transform: translateX(-52%); */
-  }
+  width: 100vw;
+  display: flex;
+  flex-wrap: no-wrap;
+  ovwerflow: auto;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: start;
 `;
 
 
 export const NavLogo = styled.img`
-  width: 260px;
-  display: flex;
-  align-items: center;
-  margin-left: 24px;
-  margin-top  : 20px;
-  justify-self:flex-start;
-  padding-bottom:2vh;
-  @media (min-width: 767px) {
-    width: 280px;
-    margin-top  : 50px;
-  }`;
+  height: 5vh;
+  cursor: pointer;
+  `;
 
-  
+export const NavItem1 = styled.div`
+  height: 15vh;
+  display: flex;
+  width: 50vw; 
+  justify-content: start;
+  align-items: center;
+  padding-left: 2vw;
+  `;
+
+
 export const MobileIcon = styled.div`
 display:none;
   @media (max-width: 960px) {
@@ -67,15 +51,13 @@ display:none;
 `;
 
 export const NavMenu = styled.ul`
+  height: 15vh;
   display: flex;
-  align-items: center;
+  width: 70vw; 
   list-style: none;
-  text-align: center;
-  float: left;
-  justify-content: flex-start;
-  margin-right: -22px;
+  justify-content: start;
+  align-items: center;
  
-
   @media screen and (max-width: 960px) {
     display:flex;
     flex-direction:column;
@@ -85,7 +67,7 @@ export const NavMenu = styled.ul`
     height:100vh;
     position:absolute;
     top:0px;
-    left: ${({click}) => (click ? '0%' : '-140%')};
+    left: ${({ click }) => (click ? '0%' : '-140%')};
     opacity:1;
     transition: all 0.5s ease;
     background-color: #101522;
@@ -94,33 +76,34 @@ export const NavMenu = styled.ul`
 
 
 
-  export const NavItems = styled.li`
+export const NavItems = styled.li`
     height:80px;
-    padding-left:24px;
     list-style: none;
 
 
     @media screen and (max-width: 960px) {
       height:0%;
-      margin-top:9vh;
       &:hover{
         border:none;
       }
     }
     `;
 
-  export const NavLink = styled(LinkS)`
+export const NavLink = styled(LinkS)`
     text-decoration:none;
     color:#fff;
     align-items:center;
     height:100%;
-    padding:0 1rem;
+    padding:0 1rem 0 0;
     display:flex;
     cursor:pointer;
-    font-family: 'wonder';
+    font-family: 'Open Sans', sans-serif;
     font-size:1.5rem;
     &:hover{
-      color:#dbac36;
+      color:#ffffff;
+    }
+    &:active{
+      border-bottom: 3px solid #01bf71;
     }
     
     @media screen and (max-width: 960px) {
@@ -137,7 +120,7 @@ export const NavMenu = styled.ul`
 
 
 
-  export const StyledButton = styled.button`
+export const StyledButton = styled.button`
     padding: 8px 22px;
     border-radius: 10px;
     white-space: nowrap;
@@ -147,12 +130,12 @@ export const NavMenu = styled.ul`
     color: var(--primary-text);
     margin-top:1.1vw;
     cursor: pointer;
-    font-family: 'wonder';
+    font-family: 'Open Sans', sans-serif;
     transition: 0.5s all ease-in-out;
     font-size:1.2rem;
     background:transparent;
-    color: #dbac36;
-    border: 1px solid #dbac36;
+    color: #ffffff;
+    border: 1px solid #ffffff;
     :active {
       box-shadow: none;
       -webkit-box-shadow: none;
@@ -165,7 +148,7 @@ export const NavMenu = styled.ul`
 
   `;
 
-  export const StyledButtonMobile = styled.button`
+export const StyledButtonMobile = styled.button`
    background-color: var(--primary);
     padding: 10px 22px;
     border-radius: 10px;
@@ -193,13 +176,13 @@ export const NavMenu = styled.ul`
 
   `;
 
-  export const NavIcon = styled.img`
+export const NavIcon = styled.img`
     display:flex;
     align-items:center;
     justify-content:center;
     vertical-align:middle;
     margin:10px auto;
-    width: ${({wid}) => wid ? wid+"%" : '48px'};
+    width: ${({ wid }) => wid ? wid + "%" : '38px'};
 
     @media screen and (max-width: 960px) {
       display:flex;

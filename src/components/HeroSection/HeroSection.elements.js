@@ -60,7 +60,7 @@ export const HeroH1 = styled.h1`
     font-size:48px;
     color:#fff;
     text-align:center;
-    font-family: 'cocogoose';
+    font-family: 'Open Sans', sans-serif;
     @media screen and (max-width: 768px) {
         font-size:40px;
     }
@@ -74,7 +74,7 @@ export const HeroP = styled.p`
     font-size:1.8rem;
     color:#fff;
     text-align:center;
-    font-family: 'wonder';
+    font-family: 'Open Sans', sans-serif;
     width:90%;
 
     @media screen and (max-width: 768px) {

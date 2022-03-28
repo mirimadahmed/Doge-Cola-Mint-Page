@@ -58,19 +58,20 @@ export const AmountContainer = styled.div`
   justify-content: ${({ jc }) => (jc ? jc : "flex-start")};
   align-items: ${({ ai }) => (ai ? ai : "flex-start")};
   width: ${({ wid }) => (wid ? wid + "%" : "100%")};
-
+  border: 1px solid #fff;
 
   
 `;
 
 export const TextTitle = styled.p`
-  color: ${({ color }) => color ? color : "#fff"};
-  font-size: ${({ size }) => size ? size + "rem" : "2.2rem"};
-  font-weight: 500;
+  line-height: 136%;
+  font-size: 39.2462px;
+  fontWeight: 400;
   line-height: 1.1;
-  font-family: 'wonder';
-  text-align:center ;
-  color: var(--primary) !important ;
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+  color: #ffffff ;
+  letter-spacing: -0.01em;
   
 
   @media only screen and (max-width: 768px) {
@@ -83,7 +84,7 @@ export const TextTitle = styled.p`
 export const TextSubTitle = styled.p`
   color: ${({ color }) => color ? color : "#fff"};
   font-size: ${({ size }) => size ? size + "rem" : "1.5rem"};
-  font-family: 'wonder';
+  font-family: 'Open Sans', sans-serif;
   text-align:${({ align }) => align ? align : "center"};
 `;
 
@@ -93,7 +94,7 @@ export const TextDescription = styled.p`
   color: ${({ color }) => color ? color : "#fff"};
   font-size: ${({ size }) => size ? size : "1.5rem"};
   line-height: 1.6;
-  font-family: 'wonder';
+  font-family: 'Open Sans', sans-serif;
   text-align:center;
   width:90%;
   display:block;
@@ -128,15 +129,15 @@ column-gap:${({ gap }) => (gap ? gap + "%" : "20%")};
 }`;
 
 export const Mint = styled.div`
-  padding:40px 80px;
-  background-color: rgba(0, 0, 0, 0.9);
-  border:1px solid #4b4b4b;
-  border-radius:25px;
-  width: 40%;
+  padding:40px 60px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border:5px solid #ffffff;
+  width:40%;
+  margin-top: 3vh;
 
   @media screen and (max-width: 768px) {
-    width:95%;
-    margin-top:-5vh;
+    width:85%;
+    padding: 15px 20px;
   }
 
 `;
@@ -168,7 +169,7 @@ export const Image = styled.img`
 
 export const Line = styled.hr`
   width:100%;
-  border:1px solid #fff;
+  border:1px solid #ffffff;
 `;
 
 export const FlexContainer = styled.div`
@@ -188,24 +189,29 @@ padding:10px ;
 export const connectButton = styled.button`
   width:100%;
   padding:10px;
-  background-color: transparent;
-  color: var(--primary);
-  font-family: 'wonder';
+  background-color: #D53E6F;
+  border: none;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
   text-align:center;
   font-size:1.5rem;
-  border:1px solid var(--primary);
-  border-radius:10px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 53px;
+  letter-spacing: -0.01em;
+  text-align: center;
   cursor: pointer;
 `;
 
 export const maxButton = styled.button`
   width:30%;
-  background : var(--primary);
+  background : #ffffff;
   height:50px;
   border-radius:10px;
-  font-family: 'wonder';
+  font-family: 'Open Sans', sans-serif;
   font-size:1.5rem;
-  color: #fff !important ;
+  color: #000 !important ;
 
   @media screen and (max-width: 768px) {
     position: relative;
@@ -224,6 +230,7 @@ export const Layout = styled.div`
   z-index: 1;
   top: 0;
   left: 0;
+  background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.9);
 `;
 

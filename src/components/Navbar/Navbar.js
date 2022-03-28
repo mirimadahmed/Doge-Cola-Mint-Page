@@ -11,6 +11,7 @@ import {
   NavMenu,
   NavItems,
   NavLink,
+  NavItem1,
   StyledButton,
   StyledButtonMobile,
   NavIcon,
@@ -55,7 +56,7 @@ const Navbar = () => {
     GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
-    SHOW_BACKGROUND: false,
+    SHOW_BACKGROUND: true,
   });
 
   const getData = () => {
@@ -104,14 +105,52 @@ const Navbar = () => {
     <>
       <Nav scrollNav={scrollNav}>
         <NavContainer>
-        <NavLink to="">
-                <NavLogo alt={"logo"} src={"config/images/logo.png"} ></NavLogo>
-            </NavLink>
-          
+          <NavItem1>
+          <NavLogo src={"config/images/hyyp-logo.svg"}></NavLogo>
+          </NavItem1>
+         
 
-          {/* <MobileIcon onClick={handleClick}>
+
+          <NavMenu onClick={handleClick} click={click}>
+            <NavItems>
+              <NavLink
+                to="/"
+                onClick={() =>
+                  socialMedia("https://opensea.io/collection/metaversessecret")
+                }
+              >
+                <NavIcon src={"config/images/opensea.png"}></NavIcon>
+              </NavLink>
+            </NavItems>
+            <NavItems>
+              <NavLink
+                to="/"
+                onClick={() =>
+                  socialMedia("https://discord.com/invite/fRgfwXEUzq")
+                }
+              >
+                <NavIcon src={"config/images/discord.png"}></NavIcon>
+              </NavLink>
+            </NavItems>
+            <NavItems>
+              <NavLink
+                to="/"
+                onClick={() => socialMedia("https://twitter.com/MVSecretNFT")}
+              >
+                <NavIcon src={"config/images/twitter.png"}></NavIcon>
+              </NavLink>
+            </NavItems>
+            <NavItems style={{ color: "white" }}>
+              <NavLink
+              >
+                MINT
+              </NavLink>
+            </NavItems>
+          </NavMenu>
+
+          <MobileIcon onClick={handleClick}>
             {click ? <FaTimes /> : <FaBars />}
-          </MobileIcon> */}
+          </MobileIcon>
         </NavContainer>
       </Nav>
     </>

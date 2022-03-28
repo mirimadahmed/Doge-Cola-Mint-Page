@@ -40,14 +40,12 @@ function Home() {
     GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
-    SHOW_BACKGROUND: false,
+    SHOW_BACKGROUND: true,
   });
 
   const claimNFTs = () => {
     let cost = 0;
     if (state == 1) {
-      cost = CONFIG.WEI_COST_OG;
-    } else if (state == 2) {
       cost = CONFIG.WEI_COST_WL;
     } else {
       cost = CONFIG.WEI_COST_PU;
@@ -95,10 +93,6 @@ function Home() {
     setMintAmount(newMintAmount);
     if (state == 1) {
       setDisplayCost(
-        parseFloat(CONFIG.DISPLAY_COST_OG * newMintAmount).toFixed(3)
-      );
-    } else if (state == 2) {
-      setDisplayCost(
         parseFloat(CONFIG.DISPLAY_COST_WL * newMintAmount).toFixed(3)
       );
     } else {
@@ -112,13 +106,6 @@ function Home() {
     let newMintAmount = mintAmount + 1;
 
     if (state == 1) {
-      newMintAmount > CONFIG.MAX_LIMIT_OG
-        ? (newMintAmount = CONFIG.MAX_LIMIT_OG)
-        : newMintAmount;
-      setDisplayCost(
-        parseFloat(CONFIG.DISPLAY_COST_OG * newMintAmount).toFixed(3)
-      );
-    } else if (state == 2) {
       newMintAmount > CONFIG.MAX_LIMIT_WL
         ? (newMintAmount = CONFIG.MAX_LIMIT_WL)
         : newMintAmount;
@@ -135,18 +122,13 @@ function Home() {
 
   const maxNfts = () => {
     if (state == 1) {
-      setMintAmount(CONFIG.MAX_LIMIT_OG);
-      setDisplayCost(
-        parseFloat(CONFIG.DISPLAY_COST_OG * CONFIG.MAX_LIMIT_OG).toFixed(3)
-      );
-    } else if (state == 2) {
       setMintAmount(CONFIG.MAX_LIMIT_WL);
       setDisplayCost(
         parseFloat(CONFIG.DISPLAY_COST_WL * CONFIG.MAX_LIMIT_WL).toFixed(3)
       );
     } else {
-      setMintAmount(10);
-      setDisplayCost(parseFloat(CONFIG.DISPLAY_COST_PU * 10).toFixed(3));
+      setMintAmount(1);
+      setDisplayCost(parseFloat(CONFIG.DISPLAY_COST_PU * 1).toFixed(3));
     }
   };
 
@@ -163,19 +145,12 @@ function Home() {
       setState(currentState);
 
       if (currentState == 1) {
-        setDisplayCost(CONFIG.DISPLAY_COST_OG);
-        let mintOG = await blockchain.smartContract.methods
-        .isOGed(blockchain.account)
-        .call();
-        setCanMintOG(mintOG);
-        (mintOG) ? "" :  setFeedback(`You are not OGed Member!!!`);
-        (mintOG) ? setDisable(false) : setDisable(true);
-      } else if (currentState == 2) {
         let mintWL = await blockchain.smartContract.methods
-        .isWhitelisted(blockchain.account)
-        .call();
+          .isWhitelisted(blockchain.account)
+          .call();
+        console.log(mintWL);
         setCanMintWL(mintWL);
-        (mintWL) ? "":  setFeedback(`You are not WhiteListed Member!!!`);
+        (mintWL) ? "" : setFeedback(`You are not WhiteListed Member!!!`);
         (mintWL) ? setDisable(false) : setDisable(true);
 
         setDisplayCost(CONFIG.DISPLAY_COST_WL);
@@ -212,15 +187,14 @@ function Home() {
           jc={"space-evenly"}
           ai={"center"}
           fd={"row"}
-          mt={"20vh"}
+          mt={"3vh"}
         >
           <s.Mint>
-            <s.TextTitle size={6.0} style={{ letterSpacing: "3px" }}>
+            <s.TextTitle style={{ letterSpacing: "-0.01em", textAlign: "left", lineHeight: "136%", fontSize: "51.388px", fontWeight: "700" }}>
               MINT NOW
             </s.TextTitle>
-            <s.SpacerSmall />
-            <s.TextSubTitle size={1.4}>
-              {2000 - supply} of 2000 NFT's Available
+            <s.TextSubTitle style={{ textAlign: "left" }}>
+              {9999 - supply} of 9999 NFT's Available
             </s.TextSubTitle>
             <s.SpacerLarge />
             <s.SpacerLarge />
@@ -230,7 +204,7 @@ function Home() {
 
               <s.AmountContainer ai={"center"} jc={"center"} fd={"row"}>
                 <StyledRoundButton
-                  style={{ lineHeight: 0.4 }}
+                  style={{ lineHeight: 0.4, fontWeight: "400" }}
                   disabled={claimingNft ? 1 : 0}
                   onClick={(e) => {
                     e.preventDefault();
@@ -240,11 +214,12 @@ function Home() {
                   -
                 </StyledRoundButton>
                 <s.SpacerMedium />
-                <s.TextDescription color={"var(--primary)"} size={"2.5rem"}>
+                <s.TextDescription color={"#ffffff"} size={"50.69px"} style={{ fontWeight: "800", border: "1px solid #fff" }}>
                   {mintAmount}
                 </s.TextDescription>
                 <s.SpacerMedium />
                 <StyledRoundButton
+                  style={{ lineHeight: 0.4, fontWeight: "400" }}
                   disabled={claimingNft ? 1 : 0}
                   onClick={(e) => {
                     e.preventDefault();
@@ -254,30 +229,24 @@ function Home() {
                   +
                 </StyledRoundButton>
               </s.AmountContainer>
-
-              <s.maxButton
-                style={{ cursor: "pointer" }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  maxNfts();
-                }}
-              >
-                Max
-              </s.maxButton>
+              <s.TextSubTitle size={1.5} style={{ fontWeight: 700 }} color={"#ffffff"} align={"right"}>
+                Max 2
+              </s.TextSubTitle>
             </s.FlexContainer>
+
 
             <s.SpacerSmall />
             <s.Line />
             <s.SpacerLarge />
             <s.FlexContainer fd={"row"} ai={"center"} jc={"space-between"}>
               <s.TextTitle>Total</s.TextTitle>
-              <s.TextTitle color={"var(--primary)"}>{displayCost}</s.TextTitle>
+              <s.TextTitle style={{ fontWeight: 700, fontSize: "50.69px" }}>{displayCost}</s.TextTitle>
             </s.FlexContainer>
             <s.SpacerSmall />
             <s.Line />
             <s.SpacerSmall />
-            <s.SpacerLarge />
-            {blockchain.account !== "" && blockchain.smartContract !== null  && blockchain.errorMsg === "" ? (
+
+            {blockchain.account !== "" && blockchain.smartContract !== null && blockchain.errorMsg === "" ? (
               <s.Container ai={"center"} jc={"center"} fd={"row"}>
                 <s.connectButton
                   disabled={disable}
@@ -294,25 +263,25 @@ function Home() {
               </s.Container>
             ) : (
               <>
-             {/* {blockchain.errorMsg === "" ? ( */}
-              <s.connectButton
-              style={{
-                textAlign: "center",
-                color: "#fff",
-                cursor: "pointer",
-              }}
-              disabled={state == 0 ? 1 : 0}
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch(connectWallet());
-                getData();
-              }}
-            >
-              Connect to Wallet
-            </s.connectButton>
-             {/* ) : ("")} */}
+                {/* {blockchain.errorMsg === "" ? ( */}
+                <s.connectButton
+                  style={{
+                    textAlign: "center",
+                    color: "#fff",
+                    cursor: "pointer",
+                  }}
+                  disabled={state == 0 ? 1 : 0}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    dispatch(connectWallet());
+                    getData();
+                  }}
+                >
+                  Connect to Wallet
+                </s.connectButton>
+                {/* ) : ("")} */}
               </>
-             
+
             )}
             <s.SpacerLarge />
             {blockchain.errorMsg !== "" ? (
@@ -327,10 +296,10 @@ function Home() {
               </s.connectButton>
             ) : (
               ""
-              
+
             )}
 
-            { (canMintOG !== true && canMintWL !== true) && (state == 2 || state == 1) ? (
+            {(canMintWL !== true) && (state == 1) ? (
               <s.connectButton
                 style={{
                   textAlign: "center",
@@ -342,14 +311,13 @@ function Home() {
               </s.connectButton>
             ) : (
               ""
-              
+
             )}
-            <Social />
           </s.Mint>
         </s.FlexContainer>
-        <s.SpacerLarge />
+        {/* <s.SpacerLarge /> */}
+        {/* <Social/> */}
       </s.Body>
-     
     </>
   );
 }
